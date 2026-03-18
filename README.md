@@ -4,7 +4,6 @@
 **Course Project — Duke MIDS | Intelligent Agents**  
 **Team:** Aesha Gandhi, Pranshul Bhatnagar, Gaurav Law
 
----
 
 ## Overview
 
@@ -12,7 +11,7 @@ Drug–drug interactions (DDIs) are one of the most common and preventable sourc
 
 This project fine-tunes **Microsoft Phi-2** using **QLoRA** on the [DDInter dataset](https://ddinter.scbdd.com/download/) to build an LLM system that answers natural language questions about drug interactions, returning structured severity classifications and plain-language clinical explanations.
 
----
+
 
 ## Repository Structure
 
@@ -34,7 +33,7 @@ This project fine-tunes **Microsoft Phi-2** using **QLoRA** on the [DDInter data
 └── requirements.txt
 ```
 
----
+
 
 ## Dataset
 
@@ -48,7 +47,7 @@ This project fine-tunes **Microsoft Phi-2** using **QLoRA** on the [DDInter data
 | `Level` | Interaction severity: Major, Moderate, Minor, or Unknown |
 | `Category` | ATC pharmacological category label |
 
----
+
 
 ## Notebooks
 
@@ -80,7 +79,7 @@ This interaction is classified under <category>.
 
 Severity explanations are hardcoded per level (Major / Moderate / Minor / Unknown) to ensure clinically consistent language in training targets. Output saved as `drugs.csv`.
 
----
+
 
 ### 2. `Phi_FinetuningLLM.ipynb` — Model Fine-Tuning
 
@@ -112,7 +111,7 @@ The prompt and completion are split at `### Output` so that loss is computed onl
 
 The fine-tuned model is saved to Google Drive and loaded for inference using `PeftModel.from_pretrained`.
 
----
+
 
 ### 3. `DDI_Scoring.ipynb` — Evaluation
 
@@ -133,7 +132,7 @@ Evaluates base Phi-2 vs. fine-tuned Phi-2 predictions against ground-truth answe
 | Baseline Phi-2 | 0.77 | 0.18 | 0.5981 |
 | Fine-Tuned Phi-2 | 0.88 | 0.35 | **0.7192** |
 
----
+
 
 ## Setup & Usage
 
@@ -174,7 +173,7 @@ DrugInteractionsLLM.ipynb  →  Phi_FinetuningLLM.ipynb  →  DDI_Scoring.ipynb
 | How do Astemizole and Magnesium citrate interact? | Moderate | Moderate interaction for Minor diseases | Magnesium citrates and Astemizoles have a **Moderate** interaction for interaction involving blood and blood forming organ drugs diseases. |
 | How do Etoposide and Dabrafenib interact? | Moderate | You should Consult Doctor | DabrafENIB and Etoposides have a **Moderate** interaction for interaction involving antiplasmal diseases. |
 
----
+
 
 ## References
 
@@ -182,7 +181,7 @@ DrugInteractionsLLM.ipynb  →  Phi_FinetuningLLM.ipynb  →  DDI_Scoring.ipynb
 - Huang, K., Xiao, C., Hoang, T., Glass, L., & Sun, J. (2020). BERTChem-DDI: Improving drug-drug interaction prediction with chemical language model. *arXiv:2011.02743*. https://doi.org/10.48550/arXiv.2011.02743
 - Rajpurkar, P., Zhang, J., Lopyrev, K., & Liang, P. (2016). SQuAD: 100,000+ questions for machine comprehension of text. *EMNLP 2016*. https://doi.org/10.48550/arXiv.1606.05250
 
----
+
 
 ## Disclaimer
 
